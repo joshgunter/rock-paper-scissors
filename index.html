@@ -7,6 +7,52 @@
     <body>
         <script>
             // Game logic here
+
+            function computerPlay() {
+                return getSelection;
+            }
+
+            function userPlay() {
+                let userInput = prompt("What do you choose? Rock, Paper or Scissors: ", "");
+                return userInput.toLowerCase();
+            }
+
+            function getRandomNum() {
+                return Math.floor(Math.random() * 3);
+            }
+
+            function getSelection() {
+                let options = ['rock', 'paper', 'scissors'];
+                return options[getRandomNum()];
+            }
+
+            function playRound(playerSelection, computerSelection) {
+                playerSelection = userPlay();
+                computerSelection = computerPlay();
+                if (playerSelection == computerSelection) {
+                    return "It's a tie. Try again!";
+                } else if (playerSelection == 'rock') {
+                    if (computerSelection == 'paper') {
+                        return "You Lose! Paper beats Rock.";
+                  }  else {
+                        return "You Win! Rock Beats Scissors";
+                    }
+                    
+                 } else if (playerSelection == 'paper') {
+                    if (computerSelection == 'rock') {
+                        return "You Win! Paper Beats Rock.";
+                    } else {
+                        return "You Lose! Scissors beats Paper."
+                    }
+                } else if (playerSelection == 'scissors') {
+                    if (computerSelection == 'rock') {
+                        return "You Lose! Rock Beats Scissors!";
+                    } else {
+                        return "You Win! Scissors beats Paper.";
+                    }
+                }
+            }
+
         </script>
     </body>
 </html>
