@@ -55,6 +55,16 @@
                 }
             }
 
+            function determineWinner(userScore, computerScore) {
+                if (userScore > computerScore) {
+                    console.log("Congrats! You Win the Game! You had " + userScore + " point(s) total.");
+                } else if (computerScore > userScore) {
+                    console.log("Too Bad! Computer wins. Try again next time. You had " + userScore + " point(s) total.");
+                } else if (userScore == computerScore) {
+                    console.log("Sorry! It's a tie. You and the computer each had " + userScore + " point(s).");
+                }
+            }
+            
             function game() {
                 let userScore = 0;
                 let computerScore = 0; 
@@ -68,15 +78,10 @@
                         computerScore++;
                     } 
                 }
-
-                if (userScore > computerScore) {
-                    console.log("Congrats! You Win the Game! You had " + userScore + " points total.");
-                } else if (computerScore > userScore) {
-                    console.log("Too Bad! Computer wins. Try again next time. You had " + userScore + " points total.");
-                } else if (userScore == computerScore) {
-                    console.log("Sorry! It's a tie. You and the computer each had " + userScore + " points.");
-                }
+                determineWinner(userScore, computerScore);
             }
+
+            game();
         
         </script>
     </body>
