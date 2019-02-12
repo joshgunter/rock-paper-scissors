@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors Project</title>
+    </head>
+
+    <body>
+        <h1>Welcome to Rock, Paper, Scissors!</h1>
+        <h3>Make your selection:</h3>
+        <button type="button" name="rock" value="rock">Rock</button>
+        <button type="button" name="paper" value="paper">Paper</button>
+        <button type="button" name="scissors" value="scissors">Scissors</button>
+
+        <script>
+
+            function getComputerSelection() {
+                let options = ['rock', 'paper', 'scissors'];
+                return options[getRandomNum()];
+            }
+
+            function getRandomNum() {
+                return Math.floor(Math.random() * 3);
+            }
+
+            function playRound(playerSelection) {
+                let computerSelection = getComputerSelection();
+                if (playerSelection == computerSelection) {
+                    console.log("It's a tie. Try again!");
+                    return "gameTied";
+                } else if (playerSelection == 'rock') {
+                    if (computerSelection == 'paper') {
+                        console.log("You Lose! Paper beats Rock.");
+                        return "computerWin";
+                  }  else {
+                    console.log( "You Win! Rock Beats Scissors");
+                    return "userWin";
+                    }
+                    
+                 } else if (playerSelection == 'paper') {
+                    if (computerSelection == 'rock') {
+                        console.log("You Win! Paper Beats Rock.");
+                        return "userWin";
+                    } else {
+                        console.log("You Lose! Scissors beats Paper.");
+                        return "computerWin";
+                    }
+                } else if (playerSelection == 'scissors') {
+                    if (computerSelection == 'rock') {
+                        console.log("You Lose! Rock Beats Scissors!");
+                        return "computerWin";
+                    } else {
+                        console.log("You Win! Scissors beats Paper.");
+                        return "userWin";
+                    }
+                }
+            }
+
+            function determineWinner(userScore, computerScore) {
+                if (userScore > computerScore) {
+                    console.log("Congrats! You Win the Game! You had " + userScore + " point(s) total.");
+                } else if (computerScore > userScore) {
+                    console.log("Too Bad! Computer wins. Try again next time. You had " + userScore + " point(s) total.");
+                } else if (userScore == computerScore) {
+                    console.log("Sorry! It's a tie. You and the computer each had " + userScore + " point(s).");
+                }
+            }
+            
+            const btn = document.querySelectorAll("button");
+            btn.forEach((button) => {
+                button.addEventListener('click', function(){playRound(button.value)});
+            });
+        </script>
+    </body>
+</html>
