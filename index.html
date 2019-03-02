@@ -2,87 +2,29 @@
 <html>
     <head>
         <title>Rock Paper Scissors Project</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
     <body>
-        <h1>Welcome to Rock, Paper, Scissors!</h1>
-        <h3>Make your selection:</h3>
-        <button type="button" name="rock" value="rock">Rock</button>
-        <button type="button" name="paper" value="paper">Paper</button>
-        <button type="button" name="scissors" value="scissors">Scissors</button>
-        <p id="round-result">Outcome: <span></span></p>
-        <p id="player-score">Player Score: <span>0</span></p>
-        <p id="computer-score">Computer Score: <span>0</span></p>
-        <p id="game-winner">WINNER: <span>?</span></p>
+        
+        <div class="container">
 
-        <script>
-            let playerScore = 0;
-            let computerScore = 0; 
+            <h1>Rock, Paper, Scissors!</h1>
+            <p id="round-result"><span></span></p>
 
-            function getComputerSelection() {
-                let options = ['rock', 'paper', 'scissors'];
-                return options[getRandomNum()];
-            }
+            <div class="input-buttons">
+                <button type="button" name="rock" value="rock">Rock</button>
+                <button type="button" name="paper" value="paper">Paper</button>
+                <button type="button" name="scissors" value="scissors">Scissors</button>
+            </div>
 
-            function getRandomNum() {
-                return Math.floor(Math.random() * 3);
-            }
-
-            function playRound(playerSelection) {
-                let computerSelection = getComputerSelection();
-                if (playerSelection == computerSelection) {
-                    roundResult.innerHTML = "It's a tie. Try again!";
-                } else if (playerSelection == 'rock') {
-                    if (computerSelection == 'paper') {
-                        roundResult.innerHTML = "You Lose! Paper beats Rock.";
-                        computerScore++;
-                  }  else {
-                    roundResult.innerHTML = "You Win! Rock Beats Scissors";
-                    playerScore++;
-                    }
-                    
-                 } else if (playerSelection == 'paper') {
-                    if (computerSelection == 'rock') {
-                        roundResult.innerHTML = "You Win! Paper Beats Rock.";
-                        playerScore++;
-                    } else {
-                        roundResult.innerHTML = "You Lose! Scissors beats Paper."
-                        computerScore++;
-                    }
-                } else if (playerSelection == 'scissors') {
-                    if (computerSelection == 'rock') {
-                        roundResult.innerHTML = "You Lose! Rock Beats Scissors!";
-                        computerScore++;
-                    } else {
-                        roundResult.innerHTML = "You Win! Scissors beats Paper.";
-                        playerScore++;
-                    }
-                }
-                document.querySelector("#player-score span").innerHTML = playerScore;
-                document.querySelector("#computer-score span").innerHTML = computerScore; 
-                determineWinner(playerScore, computerScore);
-            }
-
-            function determineWinner(playerScore, computerScore) {
-                if (playerScore == 5 || computerScore == 5) {
-                    if (playerScore> computerScore) {
-                    document.querySelector("#game-winner span").innerHTML = "Congrats! You Win the Game!";
-                    } else if (computerScore > playerScore) {
-                    document.querySelector("#game-winner span").innerHTML = "Too Bad! Computer wins. Try again next time.";
-                    } else if (playerScore == computerScore) {
-                    document.querySelector("#game-winner span").innerHTML = "Sorry! It's a tie."; 
-                    }
-                }
-                
-            }
             
-            const roundResult = document.querySelector("#round-result span");
-            const btn = document.querySelectorAll("button");
+            <p id="player-score">Your Score: <span>0</span></p>
+            <p id="computer-score">Computer Score: <span>0</span></p>
+            <p id="game-winner"><span></span></p>
 
-            btn.forEach((button) => {
-                button.addEventListener('click', function(){playRound(button.value)});
-            });
+        </div>
 
-        </script>
+        <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
