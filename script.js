@@ -58,9 +58,21 @@ function determineWinner(playerScore, computerScore) {
     
 }
 
+function reset() {
+    playerScore = 0;
+    computerScore = 0;
+    document.querySelector("#player-score span").innerHTML = playerScore;
+    document.querySelector("#computer-score span").innerHTML = computerScore; 
+    document.querySelector("#game-winner span").innerHTML = ""; 
+    roundResult.innerHTML = "";
+}
+
 const roundResult = document.querySelector("#round-result span");
-const btn = document.querySelectorAll("button");
+const btn = document.querySelectorAll(".input-buttons button");
+const reset_btn = document.querySelector(".reset-button");
 
 btn.forEach((button) => {
     button.addEventListener('click', function(){playRound(button.value)});
 });
+
+reset_btn.addEventListener('click', reset);
