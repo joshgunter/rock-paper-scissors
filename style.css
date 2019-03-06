@@ -1,13 +1,29 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: blue; /* Use color to size box */
+    background: pink;
+}
+
+button {
+    background-color: blue; 
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    color: white;
+    border-radius: 8px;
+    transition-duration: 0.5s;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
 }
 
 .container {
     margin: 0 auto;
     max-width: 500px;
     height: 300px;
-    background: pink;  /* Use color to size box */
     padding: 20px;
 }
 
@@ -15,6 +31,6 @@ h1, p {
     text-align: center;
 }
 
-.input-buttons {
+.input-buttons, .reset-button {
     text-align: center;
 }
