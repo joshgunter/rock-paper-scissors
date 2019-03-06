@@ -11,6 +11,10 @@ function getRandomNum() {
 }
 
 function playRound(playerSelection) {
+    if (playerScore == 5 || computerScore == 5) {
+        reset();
+    }
+    
     let computerSelection = getComputerSelection();
     if (playerSelection == computerSelection) {
         roundResult.innerHTML = "It's a tie. Try again!";
